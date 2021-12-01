@@ -21,6 +21,10 @@ void Graph::BFS(int startingVertex)
     visited = new bool[numberOfVertices];
 
     //Initialize visited pointer with false
+    for (int i = 0; i < numberOfVertices; i++)
+    {
+        visited[i] = false;
+    }
 
     std::list<int> queue;
 
