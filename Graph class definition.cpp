@@ -17,4 +17,6 @@ class Graph
     void addEdge(int source, int destination);
 
     void BFS(int startingVertex);
+
+    void printGraph();
 };
