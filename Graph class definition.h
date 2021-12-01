@@ -1,3 +1,6 @@
+#include <list>
+#include <queue>
+
 class Graph 
 {
   int numberOfVertices;
