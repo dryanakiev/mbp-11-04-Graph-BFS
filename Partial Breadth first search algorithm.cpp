@@ -1,16 +1,18 @@
 void Graph::BFS(int startingVertex) 
 {
   visited = new bool[numberOfVertices];
-
-  //Initialize visited pointer with false
-
   list<int> queue;
 
+
+  for (int i = 0; i < V; i++)
+  {
+      visited[i] = false;
+  }
+
   visited[startingVertex] = true;
+  queue.push_back(startingVertex);
 
-  //Add the starting vertex to the queue
-
-  //define iterator of type list<int>
+  list<int>::iterator i;
 
   while (!queue.empty()) 
   {
@@ -18,7 +20,7 @@ void Graph::BFS(int startingVertex)
     cout << "Visited V" << currentVertex << " ";
     queue.pop_front();
 
-    //For loop definition starting from current vertex to last vertex
+    for (i = adjacencyLists[startingVertex].begin(); i != adjacencyLists[startingVertex].end(); ++i)
     {
       int adjacentVertex = *listIterator;
 
@@ -30,4 +32,17 @@ void Graph::BFS(int startingVertex)
       }
     }
   }
+}
+
+void Graph::printEdges()
+{
+    for (int i = 0; i < numberOfVertices; i++)
+    {
+        std::cout << "Adjacency list of vertex" << i << std::endl;
+        for (auto it : adjacencyLists[i])
+        {
+            std::cout << it << " ";
+        }
+        std::cout << std::endl;
+    }
 }

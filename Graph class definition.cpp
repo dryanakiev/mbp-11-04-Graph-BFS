@@ -1,3 +1,7 @@
+#pragma once
+#include <list>
+#include <queue>
+
 class Graph 
 {
   int numberOfVertices;
@@ -13,8 +17,15 @@ class Graph
 
       adjacencyLists = new list<int>[vertices];
     }
+    ~Graph()
+    {
+        delete[] adjacencyLists;
+        delete[] visited;
+    }
 
     void addEdge(int source, int destination);
 
     void BFS(int startingVertex);
+
+    void printEdges();
 };
