@@ -1,33 +1,37 @@
-void Graph::BFS(int startingVertex) 
+void Graph::BFS(int startingVertex)
 {
-  visited = new bool[numberOfVertices];
+	visited = new bool[numberOfVertices];
 
-  //Initialize visited pointer with false
+	//Initialize visited pointer with false
+	for (int i = 0; i < numberOfVertices; i++)
+	{
+		visited[i] = false;
+	}
 
-  list<int> queue;
+	list<int> queue;
 
-  visited[startingVertex] = true;
+	visited[startingVertex] = true;
 
-  //Add the starting vertex to the queue
+	//Add the starting vertex to the queue
+	queue.push_back(s);
+	//define iterator of type list<int>
+	list<int>::iterator i;
 
-  //define iterator of type list<int>
+	while (!queue.empty())
+	{
+		startingVertex = queue.front();
+		cout << "Visited V" << startingVertex << " ";
+		queue.pop_front();
 
-  while (!queue.empty()) 
-  {
-    int currentVertex = queue.front();
-    cout << "Visited V" << currentVertex << " ";
-    queue.pop_front();
+		//For loop definition starting from current vertex to last vertex
+		for (i = adjacencyList[startingVertex].begin(); i != adjacencyList[startingVertex].end(); ++i)
+		{
+			if (!visited[*i]) {
 
-    //For loop definition starting from current vertex to last vertex
-    {
-      int adjacentVertex = *listIterator;
+				visited[*i] = true;
 
-      if (!visited[adjacentVertex]) {
-
-        visited[adjacentVertex] = true;
-
-        queue.push_back(adjacentVertex);
-      }
-    }
-  }
+				queue.push_back(*i);
+			}
+		}
+	}
 }
