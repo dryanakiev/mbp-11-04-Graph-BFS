@@ -1,20 +1,22 @@
-class Graph 
+class Graph
 {
-  int numberOfVertices;
+    int numberOfVertices;
 
-  list<int>* adjacencyLists;
+    list<int>* adjacencyLists;
 
-  bool* visited;
+    bool* visited;
 
-  public:
+public:
     Graph(int vertices)
     {
-      numberOfVertices = vertices;
+        numberOfVertices = vertices;
 
-      adjacencyLists = new list<int>[vertices];
+        adjacencyLists = new list<int>[vertices];
     }
 
     void addEdge(int source, int destination);
 
     void BFS(int startingVertex);
+
+    void printEdges();
 };
