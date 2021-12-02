@@ -1,3 +1,6 @@
+#include<iostream>
+#include<list>
+using namespace std;
 class Graph 
 {
   int numberOfVertices;
@@ -17,4 +20,6 @@ class Graph
     void addEdge(int source, int destination);
 
     void BFS(int startingVertex);
+    
+    void printGraph();
 };
